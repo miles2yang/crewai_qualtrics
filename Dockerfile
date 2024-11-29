@@ -1,11 +1,14 @@
+# 基於 Python 映像
 FROM python:3.9-slim
 
+# 設置工作目錄
 WORKDIR /app
 
-COPY . .
+# 複製應用文件到容器
+COPY . /app
 
-RUN pip install --no-cache-dir -r requirements.txt
+# 安裝依賴
+RUN pip install -r requirements.txt
 
-EXPOSE 5000
-
+# 啟動應用
 CMD ["python", "app.py"]
